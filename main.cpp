@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     // Parses XML file
     if(parser.xmlparser(titleinfo, xmldata))
     {
-	ofstream outFile("output.html");
+	ofstream outFile("result.html");
 	if(!outFile.is_open())
 	{
 		cout << "Failed to open output.html" << endl;

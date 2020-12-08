@@ -8,7 +8,7 @@ CFLAGS  = -g -Wall
 
 SRC = main.cpp XMLToHTML.cpp XMLParser.cpp
 OBJ = $(SRC:.cpp = .o)
-MAIN = app
+MAIN = xmltohtml
 
 all: $(MAIN)
 
