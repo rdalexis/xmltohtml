@@ -16,6 +16,6 @@ To run this project, you can use the following command:
 Xml file should be passed as an argument when we run this project. Otherwise, it will throw an error. You can find the output(result.html) in the same directory.
 
 ## References
-https://github.com/zeux/pugixml
-https://www.it2051229.com/cpphtmltable.html
-https://pugixml.org/docs/quickstart.html
+1. https://github.com/zeux/pugixml
+2. https://pugixml.org/docs/quickstart.html
+3. https://www.it2051229.com/cpphtmltable.html
