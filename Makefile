@@ -6,13 +6,14 @@ CC = g++
 #  -Wall turns on most, but not all, compiler warnings
 CFLAGS  = -g -Wall
 
-# the build target executable:
-TARGET = main
+SRC = main.cpp XMLToHTML.cpp XMLParser.cpp
+OBJ = $(SRC:.cpp = .o)
+MAIN = app
 
-all: $(TARGET)
+all: $(MAIN)
 
-$(TARGET): $(TARGET).cpp
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).cpp XMLToHTML.cpp XMLParser.cpp
+$(MAIN): $(OBJ)
+	$(CC) $(CFLAGS) -o $(MAIN) $(OBJ)
 
 clean:
-	$(RM) $(TARGET)
+	$(RM) *.o *~ $(MAIN)

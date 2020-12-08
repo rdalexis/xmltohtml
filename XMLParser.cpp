@@ -8,6 +8,12 @@ XMLParser::XMLParser(string filename)
 XMLParser::~XMLParser()
 {}
 
+/* This function parses the xml file and retrieves the data stored in xml
+   Input Arguments:
+   - parsedtitleinfo: set reference to store the heading tags
+   - parsedxmlinfo: vector reference to store all the entries in the xml file
+   Output:
+   - returns true if xml file is parsed successfully, false if there is an error*/        
 bool XMLParser::xmlparser(set<string>& parsedtitleinfo, vector<map<string, string>>& parsedxmlinfo)
 {
     xml_document doc;

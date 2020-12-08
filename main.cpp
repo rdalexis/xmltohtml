@@ -14,9 +14,10 @@ int main(int argc, char *argv[])
         return -1;
     }
     
-    XMLParser parser = XMLParser(argv[1]);
-    XMLToHTML converter = XMLToHTML();
+    XMLParser parser(argv[1]);
+    XMLToHTML converter;
     
+    // Parses XML file
     if(parser.xmlparser(titleinfo, xmldata))
     {
 	ofstream outFile("output.html");
@@ -25,6 +26,8 @@ int main(int argc, char *argv[])
 		cout << "Failed to open output.html" << endl;
 		return -3;
 	}
+
+        // Gets converted to HTML 
     	string htmlinfo = converter.xmltohtmlconverter(titleinfo, xmldata);
     	outFile << htmlinfo;
     	outFile.close();

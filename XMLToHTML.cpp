@@ -7,9 +7,11 @@ XMLToHTML::~XMLToHTML()
 {}
 
 /* This function converts parsed xml info to html table format
-   Input heading: parsed column headings
-   Input xmlinfo: parsed xml data
-   Output : html information stored as string */
+   Input Arguments:
+   - heading: parsed column headings
+   - xmlinfo: parsed xml data
+   Output: 
+   - returns html information stored as string */
 string XMLToHTML::xmltohtmlconverter(set<string> heading, vector<map<string, string>> xmlinfo)
 {
     stringstream ss;
@@ -21,6 +23,7 @@ string XMLToHTML::xmltohtmlconverter(set<string> heading, vector<map<string, str
     ss << "<table border=1>";
     ss << "<thead> <tr>";
     
+    // Creates HTML statements for each column heading in the table
     for(auto itr = heading.begin(); itr != heading.end(); itr++)
     {
 	ss << "<th>" << *itr << "</th>";
@@ -28,6 +31,7 @@ string XMLToHTML::xmltohtmlconverter(set<string> heading, vector<map<string, str
     ss << "</tr> </thead>";    
     ss << "<tbody>";
  
+    // Create HTML statements for each row in the table
     for (auto itr = xmlinfo.begin(); itr != xmlinfo.end(); itr++)
     {
        ss << "<tr>";
@@ -40,6 +44,7 @@ string XMLToHTML::xmltohtmlconverter(set<string> heading, vector<map<string, str
            }
            else 
            {
+                // If a particular cell value is missing, it will be displayed as blank in the table
 		ss << "<td>" << "" << "</td>";
            }
        }
