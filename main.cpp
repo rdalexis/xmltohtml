@@ -4,6 +4,23 @@
 #include "XMLParser.hpp"
 #include "XMLToHTML.hpp"
 
+// Checks if the given xml file is valid
+bool isXMLFileValid(string filename)
+{
+    ifstream inFile(filename);
+    if(!inFile.good())
+    { 
+        cout << "ERROR: XML file doesn't exist" << endl;
+   	return false;
+    }    
+    else if(filename.find(".xml") == string::npos)
+    {
+        cout << "ERROR: Invalid file extension" << endl;
+        return false;
+    }
+    return true;
+}
+
 int main(int argc, char *argv[])
 {
     set<string> titleinfo;
@@ -14,6 +31,9 @@ int main(int argc, char *argv[])
         return -1;
     }
     
+    if(!isXMLFileValid(argv[1]))
+	return -2;
+
     XMLParser parser(argv[1]);
     XMLToHTML converter;
     
@@ -33,7 +53,7 @@ int main(int argc, char *argv[])
     	outFile.close();
     }
     else 
-        return -2;
+        return -4;
 
     return 0;	
 }

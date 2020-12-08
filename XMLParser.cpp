@@ -19,20 +19,12 @@ bool XMLParser::xmlparser(set<string>& parsedtitleinfo, vector<map<string, strin
     xml_document doc;
     map<string, string> xmlentry;
 
-    if(!this->filename.empty())
+    xml_parse_result result = doc.load_file(this->filename.c_str());
+    if (!result)
     {
-    	xml_parse_result result = doc.load_file(this->filename.c_str());
-    	if (!result)
-	{
-		cout << "XML [" << this->filename << "] parsed with errors" << endl;
-		cout << "Error description:" << result.description() << endl;
-		return false;
-        }
-    }
-    else
-    {
-       cout << "Invalid value for filename " << this->filename << endl;
-       return false; 
+	cout << "XML [" << this->filename << "] parsed with errors" << endl;
+	cout << "Error description:" << result.description() << endl;
+	return false;
     }
       
     xml_node catalog = doc.child("CATALOG");
